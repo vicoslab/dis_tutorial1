@@ -1,8 +1,8 @@
-# Exercise 1: Introduction to ROS 2
+# Tutorial 1: Introduction to ROS2
 
 #### Development of Inteligent Systems, 2024
 
-The focus of the first exercise is to get familiar with the basics of the [ROS 2](http://www.ros.org) platform. You will learn to write your program within the system, to communicate with other programs and execute it properly. This exercise will introduce several important concepts that are crucial for further exercises, so it is recommended that you refresh the topics after the end of the formal laboratory time at home.
+The focus of the first exercise is to get familiar with the basics of the [ROS 2](http://www.ros.org) platform. You will learn to write your program within the system, to communicate with other programs and execute it properly. This exercise will introduce several important concepts that are crucial for further tutorials, so it is recommended that you refresh the topics after the end of the formal laboratory time at home.
 
 ## Setting up
 
@@ -50,8 +50,7 @@ Open a new terminal window and run the command:
 
     ros2 run turtlesim turtlesim_node
 
-The `ros2 run` command is the simplest way of running nodes. With the previous command we started the turtlesim_node which is located in the turtlesim package. In a
-third terminal run the command:
+The `ros2 run` command is the simplest way of running nodes. With the previous command we started the turtlesim_node which is located in the turtlesim package. In a third terminal run the command:
 
     ros2 run turtlesim draw_square
 
@@ -94,7 +93,7 @@ Use the following tutorials as a starting point:
 
 - [Creating a package](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)
 
-Now we can add two more nodes, one that sends a message and another one that retrieves it and prints it to the terminal. Write a launch file that can be executed using `ros2 launch` that runs both nodes. Use the following tutorials as a starting point:
+Now we can add two more nodes, one that sends a message and another one that retrieves it and prints it to the terminal.
 
 - [Simple publisher and subscriber in C++](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html)
 - [Simple publisher and subscriber in Python](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html)
