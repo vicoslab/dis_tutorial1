@@ -6,9 +6,9 @@ The focus of the first exercise is to get familiar with the basics of the [ROS 2
 
 ## Setting up
 
-To set up ROS 2 on your system, read the [official documentation](https://docs.ros.org/en/humble/index.html). In this course we will be using release **Humble** Hawksbill, which is a 4 year LTS release. It is advisable that you have at least one computer per group for development and visualization purposes.
+To set up ROS 2 on your system, read the [official documentation](https://docs.ros.org/en/humble/index.html). In this course we will be using release **Humble** Hawksbill, which is a 4 year LTS release.
 
-The recommended operating systems are Ubuntu/Kubuntu/Lubuntu/etc. **22.04 LTS** [that support a Tier 1 native installation](https://www.ros.org/reps/rep-2000.html). Dual booting is generally the most hassle-free method if you have the option.
+The recommended operating systems are Ubuntu/Kubuntu/Lubuntu/etc. **22.04 LTS** [that support a Tier 1 native installation](https://www.ros.org/reps/rep-2000.html). Dual booting is generally the most hassle-free method if you have the option. We strongly recommend you to use one of the mentioned operating systems. At worse, at-least one of the team members should have it.
 
 It's also possible to get ROS 2 installed on Windows 10 in several ways:
 - as a [native install](https://docs.ros.org/en/iron/Installation/Windows-Install-Binary.html#)
@@ -16,7 +16,7 @@ It's also possible to get ROS 2 installed on Windows 10 in several ways:
 - via [Docker image](https://docs.ros.org/en/humble/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.html)
 - via [VMWare/Virtualbox Ubuntu 22.04 image](https://www.osboxes.org/ubuntu/)
 
-Note that only the native install will likely be capable of running the Gazebo simulator with GPU acceleration, which is a requirement for realtime simulation.
+Note that only the native install will likely be capable of running the Gazebo simulator with GPU acceleration, which is a requirement for realtime simulation. Please note that we might not be able to help you with issues you encounter with a Windows installation of ROS2.
 
 Example code will be available for download as one [metapackage](https://docs.ros.org/en/humble/How-To-Guides/Using-Variants.html) (package that only contains other subpackages) per exercise.
 
