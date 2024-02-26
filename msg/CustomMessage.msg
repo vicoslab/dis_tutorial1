@@ -1,0 +1,12 @@
+#request constants
+#int8 FOO=1
+#int8 BAR=2
+#int32 y
+#another_pkg/AnotherMessage msg
+#response constants
+#uint32 SECRET=123456
+#another_pkg/YetAnotherMessage val
+#CustomMessageDefinedInThisPackage value
+#int32 result
+string content
+uint8 id
