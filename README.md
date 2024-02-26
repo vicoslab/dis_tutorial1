@@ -114,5 +114,3 @@ Here are some other useful colcon parameters:
 
 
 When in doubt, reset the cache server: `ros2 daemon stop; ros2 daemon start`
-
-![intro](figures/intro.png)
