@@ -1,6 +1,6 @@
 # Tutorial 1: Introduction to ROS2
 
-#### Development of Inteligent Systems, 2024
+#### Development of Intelligent Systems, 2024
 
 The focus of the first exercise is to get familiar with the basics of the [ROS 2](http://www.ros.org) platform. You will learn to write your program within the system, to communicate with other programs and execute it properly. This exercise will introduce several important concepts that are crucial for further tutorials, so it is recommended that you refresh the topics after the end of the formal laboratory time at home.
 
@@ -16,7 +16,7 @@ It's also possible to get ROS 2 installed on Windows 10 in several ways:
 - via [Docker image](https://docs.ros.org/en/humble/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.html)
 - via [VMWare/Virtualbox Ubuntu 22.04 image](https://www.osboxes.org/ubuntu/)
 
-Note that only the native install will likely be capable of running the Gazebo simulator with GPU acceleration, which is a requirement for realtime simulation. Please note that we might not be able to help you with issues you encounter with a Windows installation of ROS2.
+Note that only the native install will likely be capable of running the Gazebo simulator with GPU acceleration, which is a requirement for real-time simulation. Please note that we might not be able to help you with issues you encounter with a Windows installation of ROS2.
 
 Example code will be available for download as one [metapackage](https://docs.ros.org/en/humble/How-To-Guides/Using-Variants.html) (package that only contains other subpackages) per exercise.
 
@@ -26,7 +26,7 @@ ROS 2 is a complex distributed system that introduces a few concepts that are go
 
 - [Basic concepts](https://docs.ros.org/en/humble/Concepts/Basic.html): nodes, topics, parameters, launch files, cli tools
 - [Intermediate concepts](https://docs.ros.org/en/humble/Concepts/Intermediate.html): coordinate frames, actions and tasks, message ontology
-- [Advaned concepts](https://docs.ros.org/en/humble/Concepts/Advanced.html): build system, internal interfaces
+- [Advanced concepts](https://docs.ros.org/en/humble/Concepts/Advanced.html): build system, internal interfaces
 
 More info on the most important concepts:
 
@@ -42,17 +42,17 @@ More info on the most important concepts:
 
 Install the turtlesim package, if it's not already installed:
 
-    sudo apt install ros-humble-turtlesim
+sudo apt install ros-humble-turtlesim
 
 All binary ROS packages are all typically available on apt following the ros-ros_version_name-package_name convention.
 
 Open a new terminal window and run the command:
 
-    ros2 run turtlesim turtlesim_node
+ros2 run turtlesim turtlesim_node
 
 The `ros2 run` command is the simplest way of running nodes. With the previous command we started the turtlesim_node which is located in the turtlesim package. In a third terminal run the command:
 
-    ros2 run turtlesim draw_square
+ros2 run turtlesim draw_square
 
 Now we have started the node draw_square from the turtlesim package. Now open another terminal window and try to find out what's going on in the ROS system with the following commands:
 
@@ -106,7 +106,7 @@ For more useful code snippets, check out the [ROS 2 Cookbook](https://github.com
 
 ROS 2 is still under heavy development, as such any issues you encounter might not necessarily be entirely your fault. One example is the `SetuptoolsDeprecationWarning: setup.py install is deprecated.` warning for all python packages, which can be ignored.
 
-Remember to run `colcon build` after every change or set up an alias for symlinking python scripts and config files e.g. `alias colcon_make='colcon build --symlink-install'` If you run into any build errors that don't make any sense try deleting the `build`, `log` and `install` directories and run a fresh build again. 
+Remember to run `colcon build` after every change or set up an alias for symlinking python scripts and config files e.g. `alias colcon_make='colcon build --symlink-install'` If you run into any build errors that don't make any sense try deleting the `build`, `log` and `install` directories and run a fresh build again.
 
 Here are some other useful colcon parameters:
 - `--cmake-args=-DCMAKE_BUILD_TYPE=Release` (disable debugging, enable compile time optimization)
