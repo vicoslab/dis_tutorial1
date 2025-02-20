@@ -1,3 +1,4 @@
+
 # Tutorial 1: Introduction to ROS2
 
 #### Development of Intelligent Systems, 2024
@@ -6,7 +7,7 @@ The focus of the first exercise is to get familiar with the basics of the [ROS 2
 
 ## Setting up
 
-To set up ROS 2 on your system, read the [official documentation](https://docs.ros.org/en/humble/index.html). In this course we will be using release **Humble** Hawksbill, which is a 4 year LTS release.
+To set up ROS 2 on your system, read the [official documentation](https://docs.ros.org/en/humble/index.html). In this course, we will be using release **Humble** Hawksbill, which is a 4 year LTS release.
 
 The recommended operating systems are Ubuntu/Kubuntu/Lubuntu/etc. **22.04 LTS** [that support a Tier 1 native installation](https://www.ros.org/reps/rep-2000.html). Dual booting is generally the most hassle-free method if you have the option. We strongly recommend you to use one of the mentioned operating systems. At worse, at-least one of the team members should have it.
 
@@ -31,30 +32,34 @@ ROS 2 is a complex distributed system that introduces a few concepts that are go
 More info on the most important concepts:
 
 - [Nodes](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.html)
+	- Nodes are standalone programs that perform some function, such as reading from a sensor or processing some data. They communicate with other nodes via topics. Nodes can subscribe to different topics, listen for data or events and react accordingly. They can also set up new topics to which they publish results.
 
 - [Topics](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html)
+	- Topics are data channels for communication between nodes. Each topic has a data type that defines the format of the data published to it. Nodes can subscribe to topics and receive data when it is published using a callback function.
 
 - [Services](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.html)
+	- Services are an on-demand method of node communication. A node can create a service that waits for requests and returns the response. The type of request and response message types is defined in a `.srv` file.
 
 - [Actions](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.html)
+	- Actions are used for more complex long-running tasks, such as navigation. The client sets a goal, and the action server provides feedback during the execution and notifies of the goal being reached. During execution, the action can also be cancelled if needed.
 
 ## Exploring ROS 2
 
 Install the turtlesim package, if it's not already installed:
 
-sudo apt install ros-humble-turtlesim
+`sudo apt install ros-humble-turtlesim`
 
 All binary ROS packages are all typically available on apt following the ros-ros_version_name-package_name convention.
 
 Open a new terminal window and run the command:
 
-ros2 run turtlesim turtlesim_node
+`ros2 run turtlesim turtlesim_node`
 
-The `ros2 run` command is the simplest way of running nodes. With the previous command we started the turtlesim_node which is located in the turtlesim package. In a third terminal run the command:
+The `ros2 run` command is the simplest way of running nodes. With the previous command we started the turtlesim_node which is located in the turtlesim package. In a third terminal, run the command:
+`ros2 run turtlesim turtle_teleop_key`
+This will allow you to control the turtle using the keyboard. Note that the terminal running the teleop requires the focus for the teleop to work.
 
-ros2 run turtlesim draw_square
-
-Now we have started the node draw_square from the turtlesim package. Now open another terminal window and try to find out what's going on in the ROS system with the following commands:
+Using the teleop node, messages are being sent to the turtlesim node. Open another terminal window and try to find out what's going on in the ROS system with the following commands:
 
 - `ros2 topic`
 - `ros2 interface`
@@ -70,11 +75,10 @@ Answer the following questions:
 - Which **nodes** are currently active?
 - What **topics** are currently active?
 - What is the **message type** for each topic?
-- What topics is each node **publishing** to?
-- What topics is each node **subscribed** to?
-- The used message types belong to which **packages**?
+- To which topics is each node **publishing**?
+- To which topics is each node **subscribed**?
+- What are the packages that define different **message types**?
 - Which **parameters** can be set on which nodes?
-- Which **DDS middleware** is currently distributing messages?
 
 Additionally, try to:
 - Get a **visualization** of all the nodes and topics in the system.
@@ -82,6 +86,7 @@ Additionally, try to:
 - Get a printout of all the **messages** installed in the system.
 - **Print** out the messages being published on each topic.
 - **Publish** a message on each topic.
+- **Set** the background color of turtlesim to a color of your choice.
 
 Explore the usage of other commands that are found in the [ROS 2 Cheatsheet](https://www.theconstructsim.com/wp-content/uploads/2021/10/ROS2-Command-Cheat-Sheets-updated.pdf). You can also find the full turtlesim documentation [here](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html#prerequisites).
 
@@ -97,6 +102,10 @@ Now we can add two more nodes, one that sends a message and another one that ret
 
 - [Simple publisher and subscriber in C++](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html)
 - [Simple publisher and subscriber in Python](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html)
+
+## Building a package
+
+In order to build a custom package, you should move to the workspace root directory and run the following: `colcon build`. This will build all the packages within the `src` subdirectory. Since this could take a long time, the flag `--packages-select <package name>` can be used to only build selected packages. The build process will also create setup files in the `install` subdirectory. To make the newly built packages visible to ROS2, you should run the following: `source install/local_setup.bash`. Then, you will be able to run your custom nodes using the following command: `ros2 run <package_name> <node_name>`.
 
 ## Services
 
@@ -117,9 +126,13 @@ Note that only `ament_cmake` packages are capable of building interfaces (i.e. s
 
 For more useful code snippets, check out the [ROS 2 Cookbook](https://github.com/mikeferguson/ros2_cookbook).
 
-ROS 2 is still under heavy development, as such any issues you encounter might not necessarily be entirely your fault. One example is the `SetuptoolsDeprecationWarning: setup.py install is deprecated.` warning for all python packages, which can be ignored.
+Since running several different nodes in parallel requires multiple terminals, we recommend you to use a terminal emulator that is able to display several terminals in a single window. A good choice is [Terminator](https://gnome-terminator.org/). You can install it with `sudo apt install terminator`. It should also be preinstalled on the classroom computers. You can split the screen horizontally or verically with the shortcuts `ctrl + shift + e` and `ctrl + shift + o`, respectively.
 
-Remember to run `colcon build` after every change or set up an alias for symlinking python scripts and config files e.g. `alias colcon_make='colcon build --symlink-install'` If you run into any build errors that don't make any sense try deleting the `build`, `log` and `install` directories and run a fresh build again.
+ROS 2 is still under heavy development, and as such, any issues you encounter might not necessarily be entirely your fault. One example is the `SetuptoolsDeprecationWarning: setup.py install is deprecated.` warning for all python packages, which can be ignored.
+
+In order for your packages to be visible to ROS2, you will need to run `source install/setup_local.bash` in your workspace directory after build. As this holds for all terminals, a good idea is to add the following to your `.bashrc` file: `source /home/<user>/ros2_workspace/install/local_setup.bash`
+
+Running `colcon build` is necessary after any source code changes, but only for C++ nodes (or messages/services). If writing python nodes, and you build the package using the flag `--symlink-install`, the links to your python source files were created and changing your code should work without building the package again. If you run into any build errors that don't make any sense, try deleting the `build`, `log` and `install` directories and run the build again.
 
 Here are some other useful colcon parameters:
 - `--cmake-args=-DCMAKE_BUILD_TYPE=Release` (disable debugging, enable compile time optimization)

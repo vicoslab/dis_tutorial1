@@ -62,18 +62,14 @@ install(TARGETS
     simple_set_bool_server_node
     DESTINATION lib/${PROJECT_NAME})
 
-
-# Install Python modules - lets keep it simple for now
-# ament_python_install_package(dis_tutorial1)
-
 # Install Python executables
-
 install(PROGRAMS
   scripts/py_simple_publisher.py
   scripts/py_simple_subscriber.py
   scripts/py_simple_server_node.py
   scripts/py_simple_client_node.py
   scripts/py_complete_node.py
+  scripts/py_draw_square.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -85,6 +81,4 @@ target_link_libraries(simple_server_node "${cpp_typesupport_target}")
 target_link_libraries(complete_node "${cpp_typesupport_target}")
 
 ament_export_dependencies(${dependencies} rosidl_default_runtime)
-# ament_export_dependencies(ament_cmake_python)
-# ament_export_dependencies(rclpy)
 ament_package()
