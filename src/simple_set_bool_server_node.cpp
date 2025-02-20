@@ -4,9 +4,10 @@
 
 void set_bool(const std::shared_ptr<std_srvs::srv::SetBool::Request> request, std::shared_ptr<std_srvs::srv::SetBool::Response> response){
     response->success = true;
-    response->message = "You have managed to set a bool!";
+    response->message = "You have managed to set a bool.";
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request!");
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response");
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Received data: %d", request->data);
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sending back response");
 }
 
 int main(int argc, char **argv){
