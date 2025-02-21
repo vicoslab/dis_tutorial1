@@ -1,9 +1,9 @@
 
 # Tutorial 1: Introduction to ROS2
 
-#### Development of Intelligent Systems, 2024
+#### Development of Intelligent Systems, 2025
 
-The focus of the first exercise is to get familiar with the basics of the [ROS 2](http://www.ros.org) platform. You will learn to write your program within the system, to communicate with other programs and execute it properly. This exercise will introduce several important concepts that are crucial for further tutorials, so it is recommended that you refresh the topics after the end of the formal laboratory time at home.
+The focus of the first tutorial is to get familiar with the basics of the [ROS 2](http://www.ros.org) platform. You will learn to write your program within the system, to communicate with other programs and execute it properly. This tutorial will introduce several important concepts that are crucial for further tutorials, so it is recommended that you refresh the topics after the end of the formal laboratory time at home. After you explore the tutorial, you will need to submit two files as your **homework 1** on a link that will become available on Učilnica. The detailed instructions for the homework are at the end of this README.
 
 ## Setting up
 
@@ -19,7 +19,7 @@ It's also possible to get ROS 2 installed on Windows 10 in several ways:
 
 Note that only the native install will likely be capable of running the Gazebo simulator with GPU acceleration, which is a requirement for real-time simulation. Please note that we might not be able to help you with issues you encounter with a Windows installation of ROS2.
 
-Example code will be available for download as one [metapackage](https://docs.ros.org/en/humble/How-To-Guides/Using-Variants.html) (package that only contains other subpackages) per exercise.
+Example code will be available for download as one [metapackage](https://docs.ros.org/en/humble/How-To-Guides/Using-Variants.html) (package that only contains other subpackages) per tutorial.
 
 ## Concepts and terminology
 
@@ -109,7 +109,7 @@ In order to build a custom package, you should move to the workspace root direct
 
 ## Services
 
-In the exercise you have examples of creating a service and a client as well as defining a custom service interface. We define a custom service by specifying the structure of the request that the service will accept and the response that it will return. 
+In the tutorial you have examples of creating a service and a client as well as defining a custom service interface. We define a custom service by specifying the structure of the request that the service will accept and the response that it will return. 
 
 Use the following tutorials as a starting point:
 
@@ -140,3 +140,23 @@ Here are some other useful colcon parameters:
 
 
 When in doubt, reset the cache server: `ros2 daemon stop; ros2 daemon start`
+
+# Homework 1
+
+## Part 1
+
+Open the file `homework1_answers.txt` from this repository, follow the instructions and include your answers to the questions in the marked slots in the same file. Then, upload the file on the available link on Učilnica.
+
+## Part 2
+
+After you have installed and tested ROS2, as well as set up your own workspace you should:
+
+- Create a new package. In the package you can use C++ or Python.
+- Create a custom message type, that has a string fields, an integer field, and a bool field.
+- Create a custom service type, where the request contains a string field and an array of integers, and the response contains a string field and an integer field.
+- Create a publisher node, that periodically sends a message on a certain topic. You should use the custom message you defined.
+- Create a subscriber node, that recieves the message on the same topic and prints out its contents.
+- Create a custom service node that accepts an array of integers and responds with the SUM of the recieved integers. Use the custom service you defined.
+- Create a custom client node that generates random sequences of 10 integers, calls the service node, and prints out the response that it recieves from your service node.
+
+Compress your package into a single `.zip` archive named `homework_package.zip` and upload the file on the available link on Učilnica.
