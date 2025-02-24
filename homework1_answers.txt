@@ -1,0 +1,49 @@
+You should answer the questions by copying BOTH the command that you used to find the answer, and the output that contains the answer to the question. First, start the turtlesim_node from the turtlesim package. In another terminal start the py_draw_square.py node from the dis_tutorial1 package. Answer the following questions:
+
+1. Which nodes are currently active?
+
+<Copy your answer here>
+
+2. What topics does the node "/turtlesim" publish to?
+
+<Copy your answer here>
+
+3. Which topics are currenly active?
+
+<Copy your answer here>
+
+4. What is the message type for the topic "/turtle1/cmd_vel"?
+
+<Copy your answer here>
+
+5. What is the structure of the message type from the previous step?
+
+<Copy your answer here>
+
+6. Print out ONE message from the same topic.
+
+<Copy your answer here>
+
+7. What packages, beginning with "turt" are currently installed?
+
+<Copy your answer here>
+
+8. What services are currently available?
+
+<Copy your answer here>
+
+9. How many messages per second are published on the "/turtle1/cmd_vel" topic?
+
+<Copy your answer here>
+
+10. Which parameters are currently active?
+
+<Copy your answer here>
+
+11. What is the value of the parameter "/turtlesim background_r"?
+
+<Copy your answer here>
+
+12. Change the background color of the simulator window.
+
+<Copy your answer here>

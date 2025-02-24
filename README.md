@@ -159,4 +159,4 @@ After you have installed and tested ROS2, as well as set up your own workspace y
 - Create a custom service node that accepts an array of integers and responds with the SUM of the recieved integers. Use the custom service you defined.
 - Create a custom client node that generates random sequences of 10 integers, calls the service node, and prints out the response that it recieves from your service node.
 
-Compress your package into a single `.zip` archive named `homework_package.zip` and upload the file on the available link on Učilnica.
+Compress your package into a single .zip archive named `homework1_package.zip` and upload the file on the available link on Učilnica.
