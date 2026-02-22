@@ -57,7 +57,7 @@ private:
     publisher_->publish(message);
 
     if (server_available_){
-      //Send a request to a service, using the clinet object
+      //Send a request to a service, using the client object
       //Note: This is just an example, you should wait for the service to become available before sending a request!
       auto request = std::make_shared<std_srvs::srv::SetBool::Request>(); // Create the request to be sent
       request->data = true;

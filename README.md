@@ -1,22 +1,22 @@
 
 # Tutorial 1: Introduction to ROS2
 
-#### Development of Intelligent Systems, 2025
+#### Development of Intelligent Systems, FRI, 2025/2026
 
-The focus of the first tutorial is to get familiar with the basics of the [ROS 2](http://www.ros.org) platform. You will learn to write your program within the system, to communicate with other programs and execute it properly. This tutorial will introduce several important concepts that are crucial for further tutorials, so it is recommended that you refresh the topics after the end of the formal laboratory time at home. After you explore the tutorial, you will need to submit two files as your **homework 1** on a link that will become available on Učilnica. The detailed instructions for the homework are at the end of this README.
+The focus of the first tutorial is to get familiar with the basics of the [ROS 2](http://www.ros.org) framework. You will learn to write your own programs within the system, how to execute it properly and communicate with other programs. This tutorial will introduce several important concepts that are crucial for further tutorials, so it is recommended that you refresh the topics after the end of the formal laboratory time at home. After you explore the tutorial, you will need to submit two files as **Homework 1** on a link that will become available on Učilnica. The detailed instructions for the homework are at the end of this README.
 
 ## Setting up
 
 To set up ROS 2 on your system, read the [official documentation](https://docs.ros.org/en/jazzy/index.html). In this course, we will be using release **Jazzy** Jalisco, which is a 4 year LTS release.
 
-The recommended operating systems are Ubuntu/Kubuntu/Lubuntu/etc. **24.04 LTS** [that support a Tier 1 native installation](https://www.ros.org/reps/rep-2000.html). Dual booting is generally the most hassle-free method if you have the option. We strongly recommend you to use one of the mentioned operating systems. At worse, at-least one of the team members should have it.
+The recommended operating systems are Ubuntu/Kubuntu/Lubuntu/etc. **24.04 LTS** [that support a Tier 1 native installation](https://www.ros.org/reps/rep-2000.html). Dual booting is generally the most hassle-free method if you have the option. We strongly recommend you to use one of the mentioned operating systems. At worst, at-least one of the team members should have it installed natively.
 
 It's also possible to get ROS 2 installed on Windows in several ways:
 - as a [pixi install](https://docs.ros.org/en/jazzy/Installation/Windows-Install-Binary.html#)
 - by installing [WSL](https://apps.microsoft.com/detail/9P9TQF7MRM4R?hl=en-us&gl=US) and [Ubuntu 24.04](https://apps.microsoft.com/detail/9nz3klhxdjp5?hl=en-US&gl=US) from the Microsoft store
 - via [VMWare/Virtualbox Ubuntu 24.04 image](https://www.osboxes.org/ubuntu/)
 
-Note that only the native install will likely be capable of running the Gazebo simulator with GPU acceleration, which is a requirement for real-time simulation. Please note that we might not be able to help you with issues you encounter with a Windows installation of ROS2.
+Note that it is likely that only the native install will be capable of running the Gazebo simulator with GPU acceleration, which is a requirement for real-time simulation. Please note that we might not be able to help you with issues you encounter with a Windows installation of ROS2.
 
 Example code will be available for download as one [metapackage](https://docs.ros.org/en/jazzy/How-To-Guides/Using-Variants.html) (package that only contains other subpackages) per tutorial.
 
@@ -48,7 +48,7 @@ Install the turtlesim package, if it's not already installed:
 
 `sudo apt install ros-jazzy-turtlesim`
 
-All binary ROS packages are all typically available on apt following the ros-ros_version_name-package_name convention.
+All binary ROS packages are all typically available on apt following the ros-<ros_version_name>-<package_name> convention.
 
 Open a new terminal window and run the command:
 
@@ -58,7 +58,7 @@ The `ros2 run` command is the simplest way of running nodes. With the previous c
 `ros2 run turtlesim turtle_teleop_key`
 This will allow you to control the turtle using the keyboard. Note that the terminal running the teleop requires the focus for the teleop to work.
 
-Using the teleop node, messages are being sent to the turtlesim node. Open another terminal window and try to find out what's going on in the ROS system with the following commands:
+Using the teleop node, messages are being sent to the turtlesim node. Open yet another terminal window and try to find out what's going on in the ROS system with the following commands:
 
 - `ros2 topic`
 - `ros2 interface`
