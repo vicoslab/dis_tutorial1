@@ -1,6 +1,6 @@
 # These are some of the commands that were used during the tutorial. This file should not be run, it is to be used as a reference.
 # Also there might be wrong commands.
-cd ROS2
+cd ros_ws
 colcon build --help
 colcon build --symlink-install
 source install/setup.bash 
@@ -12,7 +12,7 @@ ros2 node info /py_simple_publisher_node
 ros2 topic list
 ros2 topic echo /chat 
 ros2 interface show std_msgs/msg/String 
-cd ROS2
+cd ros_ws
 colcon build --symlink-install
 ros2 node list
 ros2 node info /py_simple_publisher_node 
