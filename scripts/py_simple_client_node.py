@@ -17,6 +17,9 @@ def main(args=None):
     client = mynode.create_client(AddTwoInts, 'add_two_ints')
 
     request = AddTwoInts.Request()
+
+    while not client.wait_for_service(timeout_sec=1.0):
+        mynode.get_logger().info('Service not available, waiting...')
     
     while rclpy.ok():
         request.a = random.randint(0, 100)
