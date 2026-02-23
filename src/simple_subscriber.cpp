@@ -16,7 +16,6 @@ rclcpp::Logger logger1 = rclcpp::get_logger("logger1");
 
 void topic_callback(const std_msgs::msg::String & msg)
     {
-      //std::cout << "I heard: " << msg.data.c_str();
       RCLCPP_INFO(logger1, "I heard: '%s'", msg.data.c_str());
     }
 
@@ -37,7 +36,6 @@ int main(int argc, char * argv[])
 
   while (rclcpp::ok()) { // repeat this wile ROS2 is active
 
-    RCLCPP_INFO(logger1, "Subscriber: I performed one iteration!");
     rclcpp::spin_some(our_node); // handle subscriptions
     loop_rate.sleep(); // sleep for the appropriate amount of time so that the loop is exectuted at the defined rate
   }

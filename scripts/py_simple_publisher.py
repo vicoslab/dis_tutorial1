@@ -14,14 +14,16 @@ def main(args=None):
     
     message = String()
     message_same = "Hello world of ROS2 publishers! This is message number: "
-    message_num = 3
+    message_num = 0
 
     while rclpy.ok():
         message.data = message_same + str(message_num)
         publisher.publish(message)
-        message_num += 1
 
-        node.get_logger().info("Publisher: I performed one iteration!")
+        node.get_logger().info(f"Publisher: Sent message with id: {message_num}!")
+
+        message_num += 1
+        
         time.sleep(1)
 
     node.destroy_node()

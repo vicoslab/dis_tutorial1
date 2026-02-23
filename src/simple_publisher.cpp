@@ -33,16 +33,20 @@ int main(int argc, char * argv[])
   std_msgs::msg::String message; // Create the object that the publisher will publish
   
   std::string message_same = "Hello world of ROS2 publishers! This is message number: ";
-  int message_num = 1;
+  int message_num = 0;
 
   rclcpp::Rate loop_rate(1s); // create a Rate object that will be used to control the frequency of the loop
 
   while (rclcpp::ok()) { // repeat this wile ROS2 is active
     message.data = message_same + std::to_string(message_num); // fill in the message that will be used
     publisher->publish(message); // publish the message
+
+    // RCLCPP_INFO(logger1, "Publisher: I performed one iteration!");
+    std::string log_string = std::string("Publisher: Sent message with id: ") + std::to_string(message_num) + std::string("!");
+    RCLCPP_INFO(logger1, log_string.c_str());
+
     message_num += 1;
 
-    RCLCPP_INFO(logger1, "Publisher: I performed one iteration!");
     rclcpp::spin_some(our_node); // handle subscriptions
     loop_rate.sleep(); // sleep for the appropriate amount of time so that the loop is exectuted at the defined rate
   }

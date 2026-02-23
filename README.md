@@ -1,4 +1,5 @@
 
+
 # Tutorial 1: Introduction to ROS2
 
 #### Development of Intelligent Systems, 2025
@@ -70,6 +71,8 @@ Using the teleop node, messages are being sent to the turtlesim node. Open anoth
 
 Note that by typing −h or −help after the command verb will print information about the usage of these commands.
 
+Run the node dis_tutorial1/draw_square.py, and observe its effect on the turtle. Print out and analyze the messages being sent to the turtle. Which node is responsible for the turtle movement and what is the structure of the messages?
+
 Answer the following questions:
 
 - Which **nodes** are currently active?
@@ -138,8 +141,30 @@ Here are some other useful colcon parameters:
 - `--cmake-args=-DCMAKE_BUILD_TYPE=Release` (disable debugging, enable compile time optimization)
 - `--executor sequential` (use single threaded compilation, takes longer but uses less memory which can be useful when compiling large projects on limited hardware)
 
-
 When in doubt, reset the cache server: `ros2 daemon stop; ros2 daemon start`
+
+Occasionally, it can be easier to debug new topics and services by publishing or calling straight from the command line, instead of from a node. Following are some commands that can help you with this:
+```
+# send message from terminal
+ros2 topic pub <topic name> <message type> <data> -r <publishing rate>
+
+# e.g.:
+ros2 topic pub /chat std_msgs/String "data: test" -r 1
+
+
+# find interface for service
+ros2 interface show <service interface name>
+
+e.g.:
+ros2 interface show dis_tutorial1/srv/AddTwoInts
+
+
+# call service from terminal
+ros2 service call <service name> <service interface> <data in yaml format>
+
+# e.g.: (note that spaces in data field are important)
+ros2 service call add_two_ints dis_tutorial1/srv/AddTwoInts "{a: 1, b: 2}"
+```
 
 # Homework 1
 
